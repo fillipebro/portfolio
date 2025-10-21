@@ -203,3 +203,554 @@ h1 {
 .botao-form:hover {
     background: var(--secundaria)
 }
+
+/* === UX/A11y – melhorias sutis para cards e links (portfolio) === */
+.menu-link:focus-visible,
+.botao-link:focus-visible {
+  outline: 2px solid var(--secundaria, #7c3aed);
+  outline-offset: 3px;
+}
+
+.projetos-card {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.projetos-card:hover,
+.projetos-card:focus-within {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,.25);
+  border-color: rgba(124, 58, 237, .25);
+}
+
+.projetos-imagem {
+  display: block;
+  padding: 8px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--vidro, rgba(255,255,255,.15));
+  border-radius: 12px;
+}
+
+.botao-link {
+  font-weight: 600;
+  box-shadow: 0 6px 12px rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.botao-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* === Grid profissional para projetos (v2) === */
+.projetos-caixa{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:32px;
+  justify-items:center;
+  align-items:stretch;
+}
+
+.projetos-card{
+  width:100%;
+  max-width:360px;
+  min-height:420px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:24px;
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.projetos-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 30px rgba(0,0,0,0.3);
+}
+
+.projetos-imagem{
+  width:90px;
+  height:auto;
+  margin:0 auto 16px auto;
+  display:block;
+  filter:brightness(1.1);
+}
+
+/* === Tech Dark Theme (portfolio) === */
+:root{
+  --bg0:#000000;
+  --grid:rgba(255,255,255,0.04);
+  --glow:rgba(124,58,237,0.12);
+  --text:#ffffff;
+  --card:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.14);
+}
+
+html, body{
+  background:
+    radial-gradient(1200px 700px at 8% 12%, var(--glow), transparent 60%),
+    radial-gradient(900px 600px at 92% 88%, var(--glow), transparent 60%),
+    linear-gradient(135deg, var(--bg0), #0a0a0a);
+  color: var(--text);
+}
+
+/* Subtle tech grid overlay */
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mix-blend-mode: overlay;
+  opacity:.6;
+}
+
+/* Project list vertical */
+.projetos-caixa{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  align-items:center;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Card styling */
+.projetos-card{
+  width:100%;
+  max-width:900px;
+  min-height:200px;
+  display:grid;
+  grid-template-columns: 120px 1fr auto;
+  gap:18px;
+  align-items:center;
+  padding:24px;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.projetos-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.45);
+  border-color: rgba(124,58,237,.35);
+}
+.projetos-imagem{
+  width:100%;
+  height:auto;
+  max-width:92px;
+  justify-self:center;
+  filter:brightness(1.15);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+}
+.info-projetos{ margin:0; font-weight:800; color:#fff }
+.paragrafo-projetos{ margin:.5rem 0 0 0; color:rgba(255,255,255,.9) }
+
+.botao-link{
+  justify-self:end;
+  align-self:center;
+  padding:12px 18px;
+  border-radius:10px;
+  background: linear-gradient(135deg,#7c3aed,#8b5cf6);
+  color:#fff !important;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 8px 16px rgba(0,0,0,.25);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.botao-link:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(0,0,0,.35);
+  filter: brightness(1.06);
+}
+
+ h1,h2,h3,h4,h5,h6,p,a,li,span,small,strong{color:#fff}
+
+
+/* Subtle tech grid overlay */
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mix-blend-mode: overlay;
+  opacity:.55;
+}
+/* Force all text to white for strong contrast */
+h1,h2,h3,h4,h5,h6,p,a,li,span,small,strong,label,button{color:#fff !important}
+/* Cards vertical one-under-another */
+.projetos-caixa{display:flex;flex-direction:column;gap:28px;align-items:center;max-width:980px;margin:0 auto;padding:0 16px}
+.projetos-card{
+  width:100%;max-width:900px;min-height:200px;
+  display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;
+  padding:24px;background:var(--card);border:1px solid var(--border);border-radius:18px;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.projetos-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(0,0,0,.45);border-color:rgba(124,58,237,.35)}
+.projetos-imagem{width:100%;height:auto;max-width:120px;justify-self:center;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:12px;padding:10px;filter:brightness(1.1)}
+.info-projetos{margin:0;font-weight:800}
+.paragrafo-projetos{margin:.5rem 0 0 0;opacity:.92}
+.botao-link{justify-self:end;align-self:center;padding:12px 18px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff !important;font-weight:800;text-decoration:none;box-shadow:0 8px 16px rgba(0,0,0,.25);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.botao-link:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(0,0,0,.35);filter:brightness(1.06)}
+
+
+/* Stacks grid */
+.section h2{font-size:1.2rem;font-weight:900;letter-spacing:.4px;margin-bottom:12px}
+.stacks-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:16px;
+  align-items:center;
+}
+.stacks-grid figure{
+  margin:0;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+.stacks-grid img{
+  max-width:120px; max-height:64px; width:auto; height:auto; object-fit:contain;
+  filter:brightness(1) contrast(1.05);
+}
+.stacks-grid figcaption{
+  margin-top:8px; font-weight:700; color:#fff; opacity:.92;
+}
+
+
+/* === Blue Tech Background === */
+:root{
+  --bg0:#021427;
+  --grid:rgba(255,255,255,0.05);
+  --glow1:rgba(0,122,255,0.18);
+  --glow2:rgba(72,149,239,0.12);
+  --text:#ffffff;
+  --card:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.14);
+}
+html, body{
+  background:
+    radial-gradient(1200px 700px at 10% 15%, var(--glow1), transparent 60%),
+    radial-gradient(900px 600px at 90% 85%, var(--glow2), transparent 60%),
+    linear-gradient(135deg, var(--bg0), #031a35);
+  color: var(--text) !important;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:-1;
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mix-blend-mode: overlay;
+  opacity:.55;
+}
+h1,h2,h3,h4,h5,h6,p,a,li,span,small,strong,label,button{color:#fff !important}
+
+
+/* Stacks grid refined */
+.stacks-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:20px;
+  align-items:center;
+  justify-items:center;
+}
+.stacks-grid figure{
+  width:100%;
+  max-width:220px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  text-align:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+.stacks-grid img{
+  width:auto; height:64px; object-fit:contain; display:block;
+  filter:brightness(1) contrast(1.05);
+}
+.stacks-grid figcaption{
+  margin-top:10px; font-weight:800; opacity:.95;
+}
+/* Contact list */
+.contact-list{
+  list-style:none; margin:8px 0 0; padding:0;
+  display:flex; flex-direction:column; gap:10px;
+}
+.contact-list li{
+  display:flex; align-items:center; gap:10px;
+  background: var(--card); border:1px solid var(--border);
+  padding:10px 12px; border-radius:10px; width:max-content;
+}
+.contact-list img{ width:22px; height:22px; object-fit:contain }
+
+
+/* Centered title for Ferramentas & Stacks */
+.stacks-titulo{ text-align:center; font-size:2.2rem; font-weight:800; margin-bottom:30px; color:#ffffff }
+
+/* === [UPDATE 2025-10-20] Padronização de títulos + espaçamento vertical + contatos responsivos === */
+
+/* 1) Títulos harmonizados (h2 das seções) */
+.sobre-titulo,
+.projetos-titulo,
+.contatos-titulo,
+.stacks-titulo {
+  font-size: 2.3rem;       /* equilíbrio entre não tão pequeno e nem tão grande */
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+}
+
+/* Responsivo: reduz levemente em telas pequenas */
+@media (max-width: 600px) {
+  .sobre-titulo,
+  .projetos-titulo,
+  .contatos-titulo,
+  .stacks-titulo {
+    font-size: 1.9rem;
+    margin-bottom: 28px;
+  }
+}
+
+/* 2) Espaçamento vertical consistente entre seções */
+.sobre,
+.projetos,
+.contatos,
+.section {
+  padding: 5rem 2rem;             /* topo/baixo uniformes */
+}
+@media (max-width: 600px) {
+  .sobre,
+  .projetos,
+  .contatos,
+  .section {
+    padding: 3.75rem 1.25rem;
+  }
+}
+
+/* 3) Refinos visuais de conteúdo interno das seções para "respiro" */
+.sobre-caixa,
+.projetos-caixa,
+.contact-list {
+  margin-top: 6px;               /* pequeno respiro após o título */
+}
+
+/* 4) Contatos centralizados, profissionais e responsivos (mantém empilhado no mobile; lado a lado no desktop) */
+.contatos {
+  text-align: center;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  max-width: 720px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 16px 26px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.contact-list img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(1.15);
+}
+
+.contact-list span {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+.contact-list strong {
+  font-weight: 700;
+  color: #7c9aff;
+}
+
+/* Layout horizontal em telas médias/grandes */
+@media (min-width: 768px) {
+  .contact-list {
+    flex-direction: row;
+    flex-wrap: wrap;      /* evita quebra feia em telas intermediárias */
+    gap: 28px;
+  }
+  .contact-list li {
+    min-width: 280px;
+    justify-content: center;
+  }
+}
+
+/* === [UPDATE 2025-10-20 - Ajuste final de proporção para Ferramentas & Stacks] === */
+.stacks-titulo {
+  font-size: 2.4rem !important;   /* ligeiramente maior para igualar o peso visual */
+  font-weight: 800 !important;
+  text-align: center !important;
+  margin-bottom: 40px !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  .stacks-titulo {
+    font-size: 2rem !important;
+    margin-bottom: 32px !important;
+  }
+}
+
+/* === [UPDATE 2025-10-20 - Ajuste final de proporção para Ferramentas & Stacks] === */
+.stacks-titulo {
+  font-size: 2.4rem !important;   /* ligeiramente maior para igualar o peso visual */
+  font-weight: 800 !important;
+  text-align: center !important;
+  margin-bottom: 40px !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+@media (max-width: 600px) {
+  .stacks-titulo {
+    font-size: 2rem !important;
+    margin-bottom: 32px !important;
+  }
+}
+
+/* === [UPDATE 2025-10-20] WhatsApp link mais discreto === */
+.subtle-link {
+  text-decoration: none;
+  color: #ffffff;
+  background: transparent;
+  transition: opacity 0.3s ease;
+  opacity: 0.85;
+}
+.subtle-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* === [UPDATE 2025-10-20] Efeito de brilho sutil no ícone do WhatsApp === */
+.subtle-link img {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.subtle-link:hover img {
+  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.8)) brightness(1.1);
+  transform: scale(1.05);
+}
+
+
+/* === [UPDATE 2025-10-21] Efeitos animados nas Ferramentas & Stacks === */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.stacks-grid figure {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: float 5s ease-in-out infinite;
+}
+
+.stacks-grid figure:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.stacks-grid figure:hover img {
+  filter: brightness(1.15) drop-shadow(0 0 10px rgba(124, 58, 237, 0.6));
+}
+
+.stacks-grid figure:hover figcaption {
+  color: #a5b4fc;
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+}
+
+
+/* === OVERRIDES CONSOLIDADOS (2025-10-21) === */
+
+/* 1) Títulos um pouco maiores (sobre, habilidades, projetos, contatos) */
+.sobre-titulo,
+.stacks-titulo,
+.projetos-titulo,
+.contatos-titulo {
+  font-size: 2.7rem !important; /* +~0.2 a 0.4rem */
+  line-height: 1.15 !important;
+  letter-spacing: 0.4px;
+}
+@media (max-width: 600px) {
+  .sobre-titulo,
+  .stacks-titulo,
+  .projetos-titulo,
+  .contatos-titulo {
+    font-size: 2.1rem !important;
+  }
+}
+
+/* 2) Contatos em uma fileira horizontal, centralizados */
+.contatos { text-align: center; }
+.contact-list {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;                /* quebra em telas pequenas sem virar coluna fixa */
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 0.75rem auto 0;
+}
+
+/* Ícones com hover elegante (caso use <a class="contact-icon-link">) */
+.contact-icon-link {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 999px;
+  align-items: center;
+  justify-content: center;
+  background: var(--card, #f2f3f5);
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, filter .18s ease;
+  filter: saturate(90%);
+}
+.contact-icon-link:hover {
+  transform: translateY(-3px) scale(1.08);
+  background: rgba(255,255,255,.12);
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  filter: saturate(110%);
+}
+.contact-icon-link img { width: 30px; height: 30px; object-fit: contain; }
